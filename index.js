@@ -11,8 +11,8 @@ const fs = require('fs')
 const mount = require('koa-mount')
 const static = require('koa-static')
 
-const port = 3000;
-const ip = "10.10.7.181";
+const port = 3000
+const ip = "10.10.7.181"
 
 const app = new koa()
 
