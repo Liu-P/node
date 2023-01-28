@@ -1,0 +1,24 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "node学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liu-P/node.git"
+  },
+  "author": "lcl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liu-P/node/issues"
+  },
+  "homepage": "https://github.com/Liu-P/node#readme",
+  "dependencies": {
+    "koa": "^2.14.1",
+    "koa-mount": "^4.0.0",
+    "koa-static": "^5.0.0"
+  }
+}
