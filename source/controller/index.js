@@ -8,8 +8,8 @@
 import UserService from '../service/index.js';
 
 const registererUser = async (ctx) => {
-  const user = ctx.req.body;
-  console.log(ctx.req.body);
+  const user = ctx.request.body;
+  console.log(user);
   try {
     const data = await UserService.registerUser(user);
     ctx.response.status = 200;
