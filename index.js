@@ -3,32 +3,44 @@
  * @Author: LCL
  * @Date: 2023-01-28
  * @LastEditors: LCL
- * @LastEditTime: 2023-01-28
+ * @LastEditTime: 2023-05-10
  */
 
-const koa = require('koa')
-const fs = require('fs')
-const mount = require('koa-mount')
-const static = require('koa-static')
+import koa from 'koa';
+import { readFileSync } from 'fs';
+import mount from 'koa-mount';
+import serve from 'koa-static';
+import bodyparser from 'koa-bodyparser';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import router from './source/router/index.js';
 
-const port = 3000
-const ip = "10.10.7.181"
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const app = new koa()
+const port = 3000;
+const ip = '10.10.7.181';
+
+const app = new koa();
 
 app.use(
-  static(__dirname + '/source/')
+  bodyparser({
+    enableTypes: ['json', 'form', 'text'],
+  }),
 );
+// app.use(
+//   serve(__dirname + '/source/static/')
+// );
 
-app.use(
-  mount('/', async (ctx) => {
-      ctx.body = fs.readFileSync(__dirname + '/source/index.htm', 'utf-8')
-  })
-);
+// app.use(
+//   mount('/', async (ctx) => {
+//       ctx.body = readFileSync(__dirname + '/source/index.htm', 'utf-8')
+//   })
+// );
+
+app.use(router.routes(), router.allowedMethods());
 
 app.listen(port, ip, () => {
   console.log(`正在运行在http://${ip}:${port}`);
 });
 
-
-module.exports = app;
+export default app;

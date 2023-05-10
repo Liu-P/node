@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Liu-P/node.git"
@@ -18,7 +19,14 @@
   "homepage": "https://github.com/Liu-P/node#readme",
   "dependencies": {
     "koa": "^2.14.1",
+    "koa-bodyparser": "^4.4.0",
     "koa-mount": "^4.0.0",
-    "koa-static": "^5.0.0"
+    "koa-router": "^12.0.0",
+    "koa-static": "^5.0.0",
+    "mysql2": "^3.3.0",
+    "sequelize": "^6.31.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
