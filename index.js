@@ -8,24 +8,24 @@
 
 import koa from 'koa';
 import { readFileSync } from 'fs';
-import mount from 'koa-mount';
-import serve from 'koa-static';
+// import mount from 'koa-mount';
+// import serve from 'koa-static';
 import bodyparser from 'koa-bodyparser';
-import { fileURLToPath } from 'url';
-import path from 'path';
+// import { fileURLToPath } from 'url';
+// import path from 'path';
 import router from './source/router/index.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const port = 3000;
-const ip = '10.10.7.181';
+const ip = 'localhost';
 
 const app = new koa();
 
 app.use(
   bodyparser({
     enableTypes: ['json', 'form', 'text'],
-  }),
+  })
 );
 // app.use(
 //   serve(__dirname + '/source/static/')
